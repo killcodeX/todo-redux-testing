@@ -6,6 +6,7 @@ import {
   TASK_PENDING
 } from "./constants";
 
+// Internal Data State of the Store
 const initialState = {
   allTask: [
     {
@@ -26,13 +27,25 @@ const initialState = {
   ]
 };
 
-// Reducers
+// Reducers to update the Internal function
 const TaskReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_TASK:
+      let tsk = {
+        id: Math.floor(Math.random() * 100),
+        task: action.task,
+        status: "pending"
+      };
       return {
         ...state,
-        allPost: [...action.post]
+        allTask: [...state.allTask, tsk]
+      };
+    case DELETE_TASK:
+      let allTask = state.allTask.filter((item) => item.id != action.id);
+      console.log(allTask);
+      return {
+        ...state,
+        allTask: allTask
       };
     default:
       return state;

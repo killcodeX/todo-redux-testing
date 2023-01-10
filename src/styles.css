@@ -36,6 +36,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 100px;
 }
 
 .task-container {
@@ -62,6 +63,11 @@
 }
 
 .task-left p {
+  text-transform: capitalize;
   padding-left: 15px;
   background: #202024;
+}
+
+.remove-btn {
+  cursor: pointer;
 }
